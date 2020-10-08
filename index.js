@@ -167,16 +167,18 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(arr){
+function filterByWord(arr, word){
     let newArray = [];
      for (let i=0; i<arr.length; i++){
-        if (arr[i]=== "Chocolate"){
+        if (arr[i].includes( word)){
            newArray.push(arr[i])
-           return (newArray)
+           
         } 
      } 
+     return (newArray)
 }
-console.log(filterByWord(originalFlavors))
+
+console.log(filterByWord(originalFlavors, "Chocolate"))
 
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
@@ -191,7 +193,7 @@ Use the getAverageWordLength function below to do the following:
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
+function getAverageWordLength(arr){
     /*code here*/
 }
 
@@ -203,15 +205,15 @@ from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors and s
 Use the getRandomFlavors function and new arrays below to do the following:
     1. Receive the four arrays with all the differnet flavors (originalFlavors is above, the others are below)
     2. Randomly pick flavors from all four arrays
-    3. Return a new array called randomFlavors that has a lenght of 31
+    3. Return a new array called randomFlavors that has a length of 31
 
     For example: getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors) might return ["Strawberry Cheesecake", "Eggnog,"..."Chocolate"].
 */
 
 
-function getRandomFlavors(/*code here*/){
-    /*code here*/
-}
+// function getRandomFlavors(/*code here*/){
+//     /*code here*/
+// }
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
@@ -295,6 +297,12 @@ const regionalFlavors = [
 ]
 
 
+function getRandomFlavors(arr1, arr2, arr3, arr4){
+    let newArray = [].concat(arr1, arr2, arr3, arr4 )
+    const selected = newArray.sort(() => Math.random() - Math.random()).slice(0,31);
+    return selected
+ }
+ console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors))
 
 /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
 function foo(){
